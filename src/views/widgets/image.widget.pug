@@ -1,0 +1,24 @@
+mixin WImage(file, size=960)
+	- const sizes = [1920, 1536, 1280, 1024, 768, 640].reverse();
+	
+	// .w-img 
+	.w-img
+		picture
+			each size in sizes
+				source(
+					media=`(max-width: ${size}px)`,
+					srcset=require(`${file}?sizes[]=${size}&format=webp`),
+					type="image/webp"
+				)
+				source(
+					media=`(max-width: ${size}px)`,
+					srcset=require(`${file}?sizes[]=${size}`),
+					type="image/jpg"
+				)
+			img(
+				src=require(`${file}?size=1920`),
+				srcset=require(`${file}?sizes[]=${sizes[0]},sizes[]=${sizes[1]},sizes[]=${sizes[2]},sizes[]=${sizes[3]},sizes[]=${sizes[4]},sizes[]=${sizes[5]}`)
+				loading="lazy",
+			)
+	// ## .w-img 
+	

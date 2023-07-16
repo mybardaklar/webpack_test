@@ -1,0 +1,15 @@
+@import './typography/_init__';
+
+body {
+  @apply bg-green-600;
+}
+
+.style-1 {
+  @apply bg-red-600;
+}
+
+.bg-test {
+  background-image: url('IMAGES/test_png.png?inline');
+
+  @apply bg-no-repeat bg-center bg-cover w-36 h-36 text-white;
+}
